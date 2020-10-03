@@ -1,36 +1,26 @@
-import React from 'react';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import React, { useState } from 'react';
+import { BottomNavigation } from 'react-native-paper';
 import CardCollection from '../CardCollection';
 import Home from '../Home';
 
-const Tab = createMaterialBottomTabNavigator();
+export default () => {
+  const [index, setIndex] = useState(0);
+  const [routes] = useState([
+    { key: 'home', title: 'Home', icon: 'home', color: '#554BC5' },
+    { key: 'collection', title: 'Collection', icon: 'album', color: '#E2125B' }
+  ]);
 
-export default () => (
-  <Tab.Navigator
-    initialRouteName="home"
-    activeColor="#A2C4C9"
-    barStyle={{ backgroundColor: 'gray' }}
-  >
-    <Tab.Screen
-      name="home"
-      component={Home}
-      options={{
-        tabBarLabel: 'Home',
-        tabBarIcon: ({ color }) => (
-          <MaterialCommunityIcons name="home" color={color} size={26} />
-        ),
-      }}
+  const renderScene = BottomNavigation.SceneMap({
+    home: Home,
+    collection: CardCollection,
+  });
+
+  return (
+    <BottomNavigation
+      navigationState={{ index, routes }}
+      onIndexChange={setIndex}
+      renderScene={renderScene}
+      shifting={true}
     />
-    <Tab.Screen
-      name="cardCollection"
-      component={CardCollection}
-      options={{
-        tabBarLabel: 'Updates',
-        tabBarIcon: ({ color }) => (
-          <MaterialCommunityIcons name="bell" color={color} size={26} />
-        ),
-      }}
-    />
-  </Tab.Navigator>
-);
+  );
+}

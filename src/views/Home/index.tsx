@@ -53,7 +53,7 @@ const Home = () => {
           <VintageOptions type={"Popular Vintage"} />
           <VintageOptions type={"New Vintage"} />
           <VintageOptions type={"Highest Bid"} />
-          <VintageOptions type={"Lowest Ask"} sty/>
+          <VintageOptions type={"Lowest Ask"}/>
         </View>
       </ScrollView>
     </SafeAreaView>

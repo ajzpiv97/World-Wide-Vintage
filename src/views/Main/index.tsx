@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BottomNavigation } from 'react-native-paper';
+import { RootSiblingParent } from 'react-native-root-siblings';
 import CardCollection from '../CardCollection';
 import Home from '../Home';
 
@@ -16,11 +17,13 @@ export default () => {
   });
 
   return (
-    <BottomNavigation
-      navigationState={{ index, routes }}
-      onIndexChange={setIndex}
-      renderScene={renderScene}
-      shifting={true}
-    />
+    <RootSiblingParent>
+      <BottomNavigation
+        navigationState={{ index, routes }}
+        onIndexChange={setIndex}
+        renderScene={renderScene}
+        shifting={true}
+      />
+    </RootSiblingParent>
   );
 }

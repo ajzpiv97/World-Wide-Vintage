@@ -1,5 +1,5 @@
 import React, { useState, useEffect }from 'react';
-import { Text, SafeAreaView, ScrollView, View, StatusBar, Image, FlatList} from 'react-native';
+import { Text, SafeAreaView, ScrollView, View, StatusBar, Image, FlatList, TouchableHighlight} from 'react-native';
 import { human } from 'react-native-typography'
 import styles from './styles';
 
@@ -19,7 +19,9 @@ const Home = () => {
       { type: 'NBA', key: '2'},
       { type: 'NFL', key: '3'},
       { type: 'Pokemon', key: '4'},
-    ])
+    ]);
+
+    const [selected, setSelected] = useState('1');
 
 
     return (
@@ -30,10 +32,10 @@ const Home = () => {
       </View>
       <ScrollView horizontal={true}>
         {
-          vintage.map((item) => {
+          vintage.map(({ key, type }) => {
             return (
-              <View key={item.key}>
-                <Text style={styles.types}>{item.type}</Text>
+              <View key={key}>
+                <Text onPress={() => setSelected(key)} style={[styles.types, { color: selected == key ? 'red' : 'black' }]}>{type}</Text>
               </View>
             )
           })

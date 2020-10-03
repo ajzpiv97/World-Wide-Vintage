@@ -1,6 +1,7 @@
 import React, { useState, useEffect }from 'react';
 import { Text, SafeAreaView, ScrollView, View, StatusBar, Image, FlatList} from 'react-native';
 import { human } from 'react-native-typography'
+import * as Font from 'expo-font';
 import styles from './styles';
 
 

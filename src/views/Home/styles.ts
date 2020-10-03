@@ -22,10 +22,17 @@ const styles: any = {
     backgroundColor: 'black'
   },
 
-  types: {
+  typesSpace: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+
+  typesText: {
     padding: 25,
     fontSize: 20
   },
+
 
 }
 

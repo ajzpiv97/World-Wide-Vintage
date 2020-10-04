@@ -25,19 +25,18 @@ const styles: any = {
   typesSpace: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    paddingLeft: 15
   },
 
   typesText: {
     paddingRight: 15,
     paddingTop: 15,
-    paddingBottom: 40,
     fontSize: 20
   },
 
   options: {
-    backgroundColor: 'red',
-    height: 150
+    height: 250
   },
 
   seeAll: {

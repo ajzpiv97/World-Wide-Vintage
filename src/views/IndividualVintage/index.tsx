@@ -29,3 +29,5 @@ const IndividualView = () => {
 
 
 }
+
+export default IndividualView;

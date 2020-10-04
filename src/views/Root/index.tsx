@@ -1,6 +1,7 @@
 import React from 'react';
 import Main from '../Main';
 import Rocket from '../Rocket';
+import IndividualVintage from '../IndividualVintage';
 import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();

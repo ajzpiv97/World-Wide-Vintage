@@ -10,8 +10,15 @@ import {
 
 import styles from "./styles";
 
+import Navigation from '../Root/index';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-export const VintagePreview = (props: { uri: any; name: string; typeOffer: string; offer: any; bidTime: any; }) => (
+
+const VintagePreview = (props: { uri: any; name: string; typeOffer: string; offer: any; bidTime: any; }, ) => {
+
+  return (
+
   <View
     style={{
       height: 250,
@@ -20,8 +27,7 @@ export const VintagePreview = (props: { uri: any; name: string; typeOffer: strin
       flex: 1,
       borderWidth: 5,
       borderColor: '#f2f2f2'
-    }}
-  >
+    }}>
     <View
       style={{
         flex: 2,
@@ -52,9 +58,10 @@ export const VintagePreview = (props: { uri: any; name: string; typeOffer: strin
 
     </View>
   </View>
-);
+  )
+};
 
-export const VintageOptions = (props: {
+const VintageOptions = (props: {
   type: React.ReactNode;
 }) => {
   return <View style={{
@@ -75,3 +82,5 @@ export const VintageOptions = (props: {
       </View>
     </View>;
 };
+
+export {VintagePreview, VintageOptions};

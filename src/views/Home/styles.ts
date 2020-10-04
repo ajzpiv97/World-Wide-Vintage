@@ -7,15 +7,12 @@ const styles: any = {
 
   homeImage: {
     height: 100,
-    backgroundColor: '#a37eba',
-    alignItems: 'center',
-    justifyContent: 'center',
-
+    // alignItems: 'center',
+    justifyContent: 'center'
   },
 
   homeTitle: {
-    fontSize: 48
-
+    fontSize: 30
   },
 
   statusBar: {

@@ -92,8 +92,8 @@ const Home = () => {
         <StatusBar barStyle={"dark-content"} />
       </View>
       <View style={styles.homeImage}>
-        <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-          <View style={{ flex: 0.8 }}>
+        <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
+          <View style={{ flex: 0.8, marginTop: '10%' }}>
             <Text style={{ fontSize: 30 }}>World Wide Vintage</Text>
           </View>
           <LottieView

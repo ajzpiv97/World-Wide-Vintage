@@ -5,19 +5,23 @@ import {
 
   View,
 
-  Image
+  Image,
+
+  TouchableWithoutFeedback
 } from "react-native";
+
+import { useNavigation } from '@react-navigation/native';
 
 import styles from "./styles";
 
-import Navigation from '../Root/index';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 
+const VintagePreview = (props: { uri: any; name: string; typeOffer: string; offer: any; bidTime: any;}) => {
 
-const VintagePreview = (props: { uri: any; name: string; typeOffer: string; offer: any; bidTime: any; }, ) => {
-
-  return (
+  const maxLimit = 20
+  const navigator = useNavigation();
+    return (
+  <TouchableWithoutFeedback style={{flex: 1}} onPress={() => navigator.navigate('detail')
+  }>
 
   <View
     style={{
@@ -27,7 +31,8 @@ const VintagePreview = (props: { uri: any; name: string; typeOffer: string; offe
       flex: 1,
       borderWidth: 5,
       borderColor: '#f2f2f2'
-    }}>
+    }}
+    >
     <View
       style={{
         flex: 2,
@@ -44,20 +49,24 @@ const VintagePreview = (props: { uri: any; name: string; typeOffer: string; offe
           flex: 1,
           resizeMode: "cover",
         }}
-      ></Image>
+      />
     </View>
     <View style={{
       flex: 1,
       backgroundColor: '#f2f2f2'
     }}
     >
-      <Text style={{ marginTop: 5, marginBottom: 8, color: 'black', fontSize: 12, fontWeight: '500', overflow: 'hidden', }}>{props.name}</Text>
+      <Text style={{ marginTop: 5, marginBottom: 8, color: 'black', fontSize: 12, fontWeight: '500', overflow: 'hidden', }}>
+      { ((props.name).length > maxLimit) ?
+    (((props.name).substring(0,maxLimit-3)) + '...') :
+    props.name }{}</Text>
       <Text style={{ marginBottom: 5, color: 'black', fontSize: 12 }}>{props.typeOffer}</Text>
       <Text style={{ marginBottom: 5, color: 'black', fontSize: 24, fontWeight: 'bold' }}>{'$'}{props.offer}</Text>
       <Text style={{ marginBottom: 5, color: 'black', fontSize: 12 }}>{props.bidTime} minutes ago</Text>
 
     </View>
   </View>
+  </TouchableWithoutFeedback>
   )
 };
 
@@ -78,7 +87,7 @@ const VintageOptions = (props: {
       }}>
           {props.type}
         </Text>
-        <Text style={styles.seeAll}>See All {">"}</Text>
+        <Text style={styles.seeAll}>See All {"→"}</Text>
       </View>
     </View>;
 };

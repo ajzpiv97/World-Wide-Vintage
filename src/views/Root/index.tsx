@@ -26,6 +26,7 @@ export default () => {
         name="rocket"
         component={Rocket}
       />
+
       <Stack.Screen
         name="main"
         component={Main}
@@ -36,6 +37,11 @@ export default () => {
           },
           cardStyleInterpolator: forFade
         }}
+      />
+
+      <Stack.Screen
+        name="detail"
+        component={IndividualVintage}
       />
     </Stack.Navigator>
   );

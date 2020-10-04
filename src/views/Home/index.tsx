@@ -15,7 +15,7 @@ import styles from "./styles";
 import { VintagePreview, VintageOptions } from "./Components";
 import LottieView from 'lottie-react-native';
 
-const Home = () => {
+const Home = (props: any) => {
   let animation: any = useRef(null);
 
   const [vintage, setVintage] = useState([
@@ -93,8 +93,8 @@ const Home = () => {
         <StatusBar barStyle={"dark-content"} />
       </View>
       <View style={styles.homeImage}>
-        <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
-          <View style={{ flex: 0.8, marginTop: '10%' }}>
+        <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+          <View style={{ flex: 0.8 }}>
             <Text style={{ fontSize: 30 }}>World Wide Vintage</Text>
           </View>
           <LottieView
@@ -140,7 +140,8 @@ const Home = () => {
                     name={name}
                     typeOffer={type}
                     offer={offer}
-                    bidTime={bidTime} />
+                    bidTime={bidTime}
+                    />
                 )
               })) : selected == '2' ? (mostPopularNBA.slice(0, 5).map(({ uri, name, type, offer, bidTime }) => {
                 return (

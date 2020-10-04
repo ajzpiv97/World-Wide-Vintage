@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Text,
   SafeAreaView,
@@ -12,8 +12,11 @@ import {
 import { human } from "react-native-typography";
 import * as Font from "expo-font";
 import styles from "./styles";
+import LottieView from 'lottie-react-native';
 
 const Home = () => {
+  let animation: any = useRef(null);
+
   const [vintage, setVintage] = useState([
     { type: "MLB", key: "1" },
     { type: "NBA", key: "2" },
@@ -79,13 +82,26 @@ const Home = () => {
 
   const [selected, setSelected] = useState("1");
 
+  useEffect(() => {
+    animation.current.play();
+  })
+
   return (
     <SafeAreaView style={styles.container}>
       <View>
         <StatusBar barStyle={"dark-content"} />
       </View>
       <View style={styles.homeImage}>
-        <Text style={human.largeTitle}>World Wide Vintage</Text>
+        <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+          <View style={{ flex: 0.8 }}>
+            <Text style={{ fontSize: 30 }}>World Wide Vintage</Text>
+          </View>
+          <LottieView
+            style={{ height: 100 }}
+            ref={animation}
+            source={require('../../../assets/animations/animatonblue.json')}
+          />
+        </View>
       </View>
       <ScrollView scrollEventThrottle={16}>
         <View style={styles.typesSpace}>

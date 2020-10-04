@@ -5,3 +5,6 @@ const styles: any = {
     alignItems: 'stretch',
   },
 }
+
+
+export default styles;

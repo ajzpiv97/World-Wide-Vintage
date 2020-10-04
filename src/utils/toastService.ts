@@ -1,9 +1,9 @@
 import Toast from 'react-native-root-toast';
 
-export const showToast = () => {
-  Toast.show('This is a message', {
+export const showToast = (message: string) => {
+  Toast.show(message, {
     duration: Toast.durations.LONG,
-    position: Toast.positions.BOTTOM,
+    position: Toast.positions.CENTER,
     shadow: true,
     animation: true,
     hideOnPress: true,

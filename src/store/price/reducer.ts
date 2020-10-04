@@ -1,7 +1,8 @@
 import { GET_PRICES } from './action-types';
 
 const initialState = {
-  prices: {}
+  bid: {},
+  ask: {}
 }
 
 export default (state = initialState, { type, payload }: any) => {
